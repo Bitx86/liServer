@@ -1,0 +1,4 @@
+server: 
+  buffer_size: 1024
+  ip: 'localhost'
+  port: 9998
