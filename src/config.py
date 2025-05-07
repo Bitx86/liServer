@@ -2,8 +2,8 @@ import yaml
 from pathlib import Path
 
 class Config:
-    # Tuple of valid variables for config
-    __var__ = ('ip', 'buffer_size', 'port')
+    # Valid variables for config
+    __var__ = ('ip', 'buffer_size', 'port', 'log_to_file')
     
     def __init__(self, config_file: str):
         self.file = config_file
@@ -33,12 +33,13 @@ class Config:
     def validate_config(self):
         server_keys = self.data.get('server', {}).keys()
 
-        # Creates a list of keys which are not in __var__
+        # List of keys not in __var__ (or incorrect keys in config)
         invalid_keys = [key for key in server_keys if key not in self.__var__] 
         
         if invalid_keys:
             print(f'Error: Invalid configuration keys found: {invalid_keys}')
             exit(1)
 
+    # Return the value of a key in the yaml config
     def getVar(self, v):
         return self.data.get('server', {}).get(v)
