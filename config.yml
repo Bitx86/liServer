@@ -3,4 +3,5 @@ server:
   buffer_size: 1024
   ip: 'localhost'
   port: 9998
-  log_to_file: True 
+  log_to_file: True
+  log_file_name: 'request.txt'

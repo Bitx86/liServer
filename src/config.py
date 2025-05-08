@@ -3,7 +3,7 @@ from pathlib import Path
 
 class Config:
     # Valid variables for config
-    __var__ = ('ip', 'buffer_size', 'port', 'log_to_file')
+    __var__ = ('ip', 'buffer_size', 'port', 'log_to_file', 'log_file_name')
     
     def __init__(self, config_file: str):
         self.file = config_file
